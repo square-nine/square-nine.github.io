@@ -1,0 +1,52 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* ---------- Custom callout: prompt-close ---------- */
+
+// Light mode (default)
+:root {
+  --prompt-close-bg: rgb(240, 232, 248);
+  --prompt-close-icon-color: rgb(142, 68, 173);
+}
+
+// Dark mode, when the user toggles it manually
+html[data-mode="dark"] {
+  --prompt-close-bg: rgba(142, 68, 173, 0.25);
+  --prompt-close-icon-color: rgb(187, 134, 252);
+}
+
+// Dark mode, when following the system preference
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    --prompt-close-bg: rgba(142, 68, 173, 0.25);
+    --prompt-close-icon-color: rgb(187, 134, 252);
+  }
+}
+
+blockquote.prompt-close {
+  background-color: var(--prompt-close-bg);
+  font-weight: 700;
+
+  p {
+    font-weight: inherit;
+  }
+  
+  &::before {
+    content: "\f08b";
+    color: var(--prompt-close-icon-color);
+    font: var(--fa-font-solid);
+  }
+}

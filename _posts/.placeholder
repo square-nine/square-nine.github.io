@@ -1,1 +1,66 @@
+---
+title: "Your Post Title"
+description: "One-sentence summary used for SEO and link previews."
+date: 2026-11-02 12:00:00 +0000
+categories: [Top Category, Sub Category]
+tags: [example, template]   # always lowercase
+# pin: true                 # pin to the top of the home page
+# math: true                # enable MathJax
+# mermaid: true             # enable Mermaid diagrams
+# toc: false                # per-post override of the TOC (on by default in your config)
+# comments: false           # per-post override of comments
+# image:
+#   path: /assets/img/posts/my-first-post/cover.jpg
+#   alt: Description of the cover image
+---
 
+Intro paragraph goes here. This is the hook that tells readers what the post covers.
+
+## First Section
+
+Your content here. Regular **bold**, *italic*, and [links](https://example.com) work as expected.
+
+### A Subsection
+
+- Bullet one
+- Bullet two
+
+## Code Example
+
+```python
+print("Hello, world!")
+```
+
+Add a filename label to a code block with a kramdown attribute:
+
+```yaml
+key: value
+```
+{: file="_config.yml" }
+
+## Images
+
+![Alt text](/assets/img/posts/my-first-post/example.png){: w="700" h="400" }
+_Image caption goes here_
+
+## Callouts
+
+> This is a helpful tip.
+{: .prompt-tip }
+
+> This is some general information.
+{: .prompt-info }
+
+> This is a warning.
+{: .prompt-warning }
+
+> This is something dangerous.
+{: .prompt-danger }
+
+## Inline Filepaths
+
+Edit `_config.yml`{: .filepath } to change site settings.
+
+## Conclusion
+
+Wrap up your key points here.
