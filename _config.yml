@@ -77,6 +77,8 @@ analytics:
 pageviews:
   provider: goatcounter
 
+likes_api: https://blog-likes.squarenine-digital.workers.dev
+
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,
