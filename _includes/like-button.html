@@ -50,7 +50,7 @@
       setLiked();
       show(Number(count.textContent) + 1);
       try { localStorage.setItem(storeKey, '1'); } catch (e) {}
-      // Record the like as a GoatCounter event, if the script has loaded
+      /* Record the like as a GoatCounter event, if the script has loaded */
       if (window.goatcounter && window.goatcounter.count) {
         window.goatcounter.count({ path: 'like' + slug, title: 'Like', event: true });
       }
