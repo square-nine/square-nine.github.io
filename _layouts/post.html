@@ -7,6 +7,7 @@ tail_includes:
   - post-nav
 script_includes:
   - comment
+  - song-player-script
 ---
 {% include lang.html %}
 
@@ -118,9 +119,13 @@ script_includes:
     </dialog>
   {% endif %}
 
+  {% include song-player.html %}
+
   <div class="content">
     {{ content }}
   </div>
+  <span class="song-player-bottom-sentinel" data-song-player-bottom-sentinel aria-hidden="true"></span>
+  <div class="song-player-bottom-anchor" data-song-player-bottom-anchor></div>
   {% include like-button.html %}
   <div class="post-tail-wrapper text-muted">
     <div class="d-flex justify-content-between align-items-center gap-3 mb-3">

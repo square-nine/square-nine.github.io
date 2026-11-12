@@ -1,0 +1,81 @@
+{% if page.song.title and page.song.url %}
+  {% assign song_file = page.song.url | split: '?' | first | split: '#' | first %}
+  {% assign song_extension = song_file | split: '.' | last | downcase %}
+  {% assign song_mime_type = '' %}
+  {% case song_extension %}
+    {% when 'aac' %}{% assign song_mime_type = 'audio/aac' %}
+    {% when 'flac' %}{% assign song_mime_type = 'audio/flac' %}
+    {% when 'm4a' %}{% assign song_mime_type = 'audio/mp4' %}
+    {% when 'mp3' %}{% assign song_mime_type = 'audio/mpeg' %}
+    {% when 'oga' %}{% assign song_mime_type = 'audio/ogg' %}
+    {% when 'ogg' %}{% assign song_mime_type = 'audio/ogg' %}
+    {% when 'opus' %}{% assign song_mime_type = 'audio/ogg; codecs=opus' %}
+    {% when 'wav' %}{% assign song_mime_type = 'audio/wav' %}
+    {% when 'weba' %}{% assign song_mime_type = 'audio/webm' %}
+  {% endcase %}
+  <div class="song-player-slot" data-song-player-slot>
+    <blockquote class="prompt-song" data-song-player>
+      <div class="song-player-heading">
+        <p class="song-player-title">
+          {% if page.song['source-link'] %}
+            <a href="{{ page.song['source-link'] | relative_url | escape }}" target="_blank" rel="noopener noreferrer">
+              <strong>{{ page.song.title | escape }}</strong>
+            </a>
+          {% else %}
+            <strong>{{ page.song.title | escape }}</strong>
+          {% endif %}
+          {% if page.song.artist %}
+            by
+            {% if page.song['artist-link'] %}
+              <a href="{{ page.song['artist-link'] | relative_url | escape }}" target="_blank" rel="noopener noreferrer">
+                {{ page.song.artist | escape }}
+              </a>
+            {% else %}
+              {{ page.song.artist | escape }}
+            {% endif %}
+          {% endif %}
+        </p>
+        <div class="song-player-volume-controls">
+          <label class="visually-hidden" for="song-volume-{{ page.slug }}">Volume</label>
+          <input
+            id="song-volume-{{ page.slug }}"
+            class="song-player-volume"
+            type="range"
+            min="0"
+            max="50"
+            value="50"
+            aria-label="Player volume; maximum audio output is adjustable in Settings"
+            data-song-volume
+          >
+          <output class="song-player-volume-value" data-song-volume-value>100%</output>
+        </div>
+      </div>
+      <div class="song-player">
+        <audio class="song-audio" preload="none" aria-hidden="true">
+          <source
+            src="{{ page.song.url | relative_url | escape }}"
+            {% if song_mime_type %}type="{{ song_mime_type }}"{% endif %}
+          >
+        </audio>
+        <div class="song-player-controls">
+          <button class="song-player-toggle" type="button" aria-label="Play song">
+            <i class="fa-solid fa-play" aria-hidden="true"></i>
+          </button>
+          <span class="song-player-time" data-song-current-time>0:00</span>
+          <input
+            class="song-player-progress"
+            type="range"
+            min="0"
+            max="1000"
+            value="0"
+            disabled
+            aria-label="Song progress"
+            data-song-progress
+          >
+          <span class="song-player-time" data-song-duration>0:00</span>
+        </div>
+        <span class="song-player-status" role="status" aria-live="polite" data-song-status></span>
+      </div>
+    </blockquote>
+  </div>
+{% endif %}

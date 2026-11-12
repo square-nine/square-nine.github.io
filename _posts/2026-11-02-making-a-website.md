@@ -4,6 +4,12 @@ description: "How wonderful it is to make a website for yourself"
 date: 2026-11-02 12:00:00 +0000
 categories: [coding]
 tags: [ai, side-project]   # always lowercase
+song:
+  title: "All This Time"
+  artist: "Gothminister"
+  url: "/assets/audio/All%20This%20Time%20-%20Gothminister.flac"
+  source-link: "https://open.spotify.com/track/1vRhyHd5fvIEisBjx6qGFd?si=c6b1a29eb79a420c"
+  artist-link: "https://open.spotify.com/artist/2S3xwpueZpPVUDTTv7Wefx?si=drNdKlDZTZO5oPra-zSMGA"
 # pin: true                 # pin to the top of the home page
 # math: true                # enable MathJax
 # mermaid: true             # enable Mermaid diagrams

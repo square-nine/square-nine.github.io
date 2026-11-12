@@ -4,6 +4,12 @@ description: "One-sentence summary used for SEO and link previews."
 date: 2026-11-02 12:00:00 +0000
 categories: [Top Category, Sub Category]
 tags: [example, template]   # always lowercase
+# song:
+#   title: "Song Title"
+#   artist: "Artist Name"
+#   url: "/assets/audio/song.flac"
+#   source-link: "https://example.com/song" # Optional link for the title; use a song page, not the audio file
+#   artist-link: "https://example.com/artist" # Link the artist to their page
 # pin: true                 # pin to the top of the home page
 # math: true                # enable MathJax
 # mermaid: true             # enable Mermaid diagrams
